@@ -1,0 +1,2589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronicles of Us ❤️</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Montserrat:wght@200;400;600&family=Space+Grotesk:wght@300;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        :root {
+            /* PINK THEME (Now Default - replaced Rose) */
+            --bg-color: #2A0F1F;
+            --bg-gradient: radial-gradient(circle at 50% 50%, #4a1930 0%, #2A0F1F 100%);
+            --text-main: #FFE4E6;
+            --text-muted: rgba(255, 228, 230, 0.6);
+
+            --primary: #F43F5E;
+            --secondary: #FDA4AF;
+            --accent: #F5D0FE;
+
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(244, 63, 94, 0.2);
+            --glass-shine: rgba(255, 255, 255, 0.05);
+
+            --card-shadow: 0 20px 50px rgba(244, 63, 94, 0.2);
+
+            --font-display: 'Cormorant Garamond', serif;
+            --font-body: 'Space Grotesk', sans-serif;
+
+            --pointer-blue: #F43F5E;
+            --accent-glow: rgba(244, 63, 94, 0.35);
+            --accent-pink: #F43F5E;
+            --accent-blue: #FDA4AF;
+        }
+
+
+        [data-theme="sunset"] {
+            /* SUNSET THEME (Unchanged) */
+            --bg-color: #2b0a15;
+            --bg-gradient: linear-gradient(135deg, #4a1c25 0%, #1a0508 100%);
+            --text-main: #fff0e6;
+            --text-muted: rgba(255, 240, 230, 0.6);
+            --primary: #ff9a3c;
+            --secondary: #d14e28;
+            --accent: #ffccbc;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 154, 60, 0.2);
+            --card-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            --pointer-blue: #ff9a3c;
+            --accent-glow: rgba(255, 154, 60, 0.35);
+            --accent-pink: #ff9a3c;
+        }
+
+
+        [data-theme="green"] {
+            /* GREEN THEME (Unchanged) */
+            --bg-color: #1a2a1a;
+            --bg-gradient: radial-gradient(circle at 30% 20%, #2a4a2a 0%, #1a2a1a 100%);
+            --text-main: #F5F5DC;
+            --text-muted: rgba(245, 245, 220, 0.6);
+            --primary: #8FBC8F;
+            --secondary: #556B2F;
+            --accent: #98FB98;
+            --glass-bg: rgba(42, 61, 49, 0.55);
+            --glass-border: rgba(143, 188, 143, 0.25);
+            --card-shadow: 0 20px 50px rgba(0,0,0,0.45);
+            --pointer-blue: #8FBC8F;
+            --accent-glow: rgba(143, 188, 143, 0.35);
+            --accent-pink: #8FBC8F;
+        }
+
+
+        [data-theme="pink"] {
+            /* ROSE THEME (Moved here, replacing old Pink) */
+            --bg-color: #2F1E2E;
+            --bg-gradient: radial-gradient(circle at 50% 50%, #3d273b 0%, #1a0f14 100%);
+            --text-main: #FBEAEA;
+            --text-muted: rgba(251, 234, 234, 0.6);
+
+            --primary: #D8A7B1;
+            --secondary: #C08081;
+            --accent: #D7C0AE;
+
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(192, 128, 129, 0.15);
+            --glass-shine: rgba(255, 255, 255, 0.05);
+
+            --card-shadow: 0 20px 50px rgba(0,0,0,0.4);
+
+            --pointer-blue: #D8A7B1;
+            --accent-glow: rgba(216, 167, 177, 0.35);
+            --accent-pink: #D8A7B1;
+            --accent-blue: #C08081;
+        }
+
+
+        [data-theme="midnight"] {
+            /* MIDNIGHT THEME (New) */
+            --bg-color: #0f172a;
+            --bg-gradient: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 100%);
+            --text-main: #e2e8f0;
+            --text-muted: rgba(226, 232, 240, 0.6);
+            --primary: #818cf8;    /* Indigo */
+            --secondary: #6366f1;  /* Indigo 500 */
+            --accent: #c7d2fe;     /* Light Indigo */
+            --glass-bg: rgba(30, 41, 59, 0.55);
+            --glass-border: rgba(129, 140, 248, 0.25);
+            --card-shadow: 0 20px 50px rgba(0,0,0,0.45);
+            --pointer-blue: #818cf8;
+            --accent-glow: rgba(129, 140, 248, 0.35);
+            --accent-pink: #818cf8;
+        }
+
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            cursor: none; 
+        }
+        
+        html { 
+            scroll-behavior: smooth; 
+            overflow: hidden; 
+        }
+
+        body {
+            background: var(--bg-color);
+            background-image: var(--bg-gradient);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            overflow: hidden;
+            transition: background 0.6s cubic-bezier(0.19, 1, 0.22, 1), color 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+            height: 100vh;
+            position: relative;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary);
+        }
+
+        .bg-mesh {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -1;
+            opacity: 0.4;
+            background: 
+                radial-gradient(circle at 15% 50%, var(--primary) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, var(--secondary) 0%, transparent 25%);
+            filter: blur(80px);
+            animation: breathe 10s infinite alternate;
+            transition: transform 0.1s linear; 
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.08); opacity: 0.5; }
+        }
+
+        .cursor-blur {
+            position: fixed;
+            width: 120px;
+            height: 120px;
+            background: var(--accent-glow);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            filter: blur(50px);
+            opacity: 0.4;
+            transform: translate(-50%, -50%);
+            transition: background 0.4s ease, width 0.3s ease, height 0.3s ease;
+        }
+
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--pointer-blue);
+            border-radius: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            pointer-events: none;
+            box-shadow:
+                0 0 10px var(--pointer-blue),
+                0 0 20px var(--pointer-blue);
+            transition: width 0.15s ease, height 0.15s ease, background-color 0.3s ease, opacity 0.15s ease;
+        }
+
+        .cursor-ring {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            z-index: 9998;
+            pointer-events: none;
+            border: 2px solid var(--pointer-blue);
+            transition: width 0.2s ease, height 0.2s ease, border-color 0.3s ease, background 0.3s ease;
+        }
+
+        body.hovering .cursor-dot {
+            width: 4px;
+            height: 4px;
+            opacity: 0.6;
+        }
+
+        body.hovering .cursor-ring {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--pointer-blue);
+        }
+        
+        body.hovering .cursor-blur {
+            width: 150px;
+            height: 150px;
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* MAGNETIC BUTTON STYLES */
+        .magnetic-btn {
+            position: relative;
+            background: transparent;
+            color: var(--text-main);
+            font-family: var(--font-body);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            padding: 1rem 2.5rem;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 100px;
+            transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1), transform 0.1s ease-out;
+            overflow: hidden;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .magnetic-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: var(--primary);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s ease;
+        }
+
+        .magnetic-btn:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 30px var(--primary);
+            color: var(--bg-color);
+        }
+
+        [data-theme="green"] .magnetic-btn:hover {
+            color: #FEFCE8;
+        }
+
+        .magnetic-btn:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .quiz-option {
+            width: 100%;
+            text-align: left;
+            border-radius: 8px;
+            padding: 14px 18px;
+            font-size: 0.9rem;
+            text-transform: none;
+            letter-spacing: 0.5px;
+            justify-content: flex-start;
+        }
+
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid var(--glass-border);
+            border-top: 1px solid var(--glass-shine);
+            border-left: 1px solid var(--glass-shine);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reflection-container {
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .reflection {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: inherit;
+            transform: scaleY(-1) translateY(-10px) translateZ(-50px);
+            opacity: 0.15;
+            filter: blur(4px);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
+            pointer-events: none;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-display);
+            font-weight: 300;
+            line-height: 1.1;
+        }
+
+        h1 {
+            font-size: clamp(4rem, 10vw, 9rem);
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, var(--text-main), var(--text-muted));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .subtitle {
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            font-size: 0.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .page-wrapper {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .pages-container {
+            display: flex;
+            transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1);
+            height: 100vh;
+        }
+
+        .page {
+            min-width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            position: relative;
+            perspective: 1000px;
+            overflow: hidden; 
+        }
+        
+        .page:nth-child(11) {
+            overflow: visible;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            transition: transform 0.1s linear;
+        }
+
+        .nav-controls {
+            position: fixed;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 100;
+            align-items: center;
+        }
+
+        .nav-controls button {
+            width: 60px;
+            height: 60px;
+            padding: 0;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page-indicator {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: var(--text-main);
+            padding: 0.5rem 1.5rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+        }
+
+        .theme-dock {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%) translateX(85%); /* Hidden by default */
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            z-index: 100;
+            padding: 1.2rem 0.6rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 50px 0 0 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-right: none;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        
+        /* Make theme dock fully visible on first page */
+        .theme-dock.visible {
+            transform: translateY(-50%) translateX(0);
+        }
+        
+        /* Show on hover */
+        .theme-dock:hover {
+            transform: translateY(-50%) translateX(0) !important;
+        }
+        
+        .theme-dock::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -1px;
+            transform: translateY(-50%);
+            width: 2px;
+            height: 70%;
+            background: linear-gradient(to bottom, transparent, var(--primary), transparent);
+            border-radius: 0 10px 10px 0;
+        }
+
+        .theme-orb {
+            width: 28px; 
+            height: 28px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .theme-orb:hover {
+            transform: scale(1.3);
+            border-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .theme-orb.active {
+            transform: scale(1.1);
+            border-color: white;
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        .hero-content {
+            text-align: center;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 10vw, 8rem);
+            line-height: 0.9;
+            letter-spacing: -0.03em;
+            font-style: italic;
+            background: linear-gradient(180deg, #ffffff, rgba(255,255,255,0.4));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-sub {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.9s 0.4s forwards;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+            max-height: 75vh;
+            overflow-y: auto;
+            padding-right: 20px;
+            width: 100%;
+        }
+        
+        .timeline::-webkit-scrollbar {
+            width: 6px;
+        }
+        .timeline::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+        .timeline::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        .page:nth-child(2)::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, var(--primary), var(--secondary), transparent);
+            transform: translateX(-50%);
+            z-index: 0;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .t-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .t-item:nth-child(even) { flex-direction: row-reverse; }
+
+        .t-card {
+            width: 40%;
+        }
+
+        .vow-text {
+            font-size: 1.5rem;
+            line-height: 2;
+            opacity: 1;
+            transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1), transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s cubic-bezier(0.19, 1, 0.22, 1), transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .fade-in-up.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .floating-geo {
+            position: fixed;
+            border: 1px solid rgba(255,255,255,0.1);
+            animation: floatGeo 20s infinite ease-in-out;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes floatGeo {
+            0%,100% { transform: translate(0,0) rotate(0deg); }
+            50% { transform: translate(30px,-50px) rotate(180deg); }
+        }
+
+        .floating-heart {
+            position: fixed;
+            top: 10%;
+            right: 10%;
+            width: 80px;
+            height: 80px;
+            background: transparent;
+            animation: floatGeo 18s infinite ease-in-out;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-heart::before,
+        .floating-heart::after {
+            content: "";
+            position: absolute;
+            width: 40px;
+            height: 64px;
+            background: transparent;
+            border: 1px solid var(--accent-pink);
+            border-radius: 40px 40px 0 0;
+        }
+
+        .floating-heart::before {
+            left: 40px;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+
+        .floating-heart::after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+        
+        /* ============================================
+           TILT CARD STYLES & PAGE SPECIFIC OVERRIDES
+           ============================================ */
+        
+        .tilt-card {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            transform-style: preserve-3d;
+            transition: transform 0.15s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Gallery specific enhancements */
+        .gallery-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            aspect-ratio: 16/9;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 4px;
+            background: rgba(0, 0, 0, 0.2);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+            cursor: pointer;
+        }
+        
+        /* ENHANCED: Interactive glow effect on hover */
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px var(--primary);
+            z-index: 5;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        
+        .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+        .gallery-item:nth-child(2) { grid-column: span 1; grid-row: span 1; }
+        .gallery-item:nth-child(3) { grid-column: span 1; grid-row: span 2; }
+        .gallery-item:nth-child(4) { grid-column: span 1; grid-row: span 1; }
+        .gallery-item:nth-child(5) { grid-column: span 1; grid-row: span 1; }
+        .gallery-item:nth-child(6) { grid-column: span 1; grid-row: span 1; }
+        .gallery-item:nth-child(7) { grid-column: span 2; grid-row: span 1; }
+        
+        .gallery-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .gallery-overlay img {
+            max-width: 60vw;
+            max-height: 60vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            transform: scale(0.8);
+            transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        
+        .gallery-overlay.active img {
+            transform: scale(1);
+        }
+        
+        .gallery-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2rem;
+            color: white;
+            z-index: 1001;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .gallery-close:hover {
+            opacity: 1;
+        }
+        
+        #quiz-container {
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #quiz-container .tilt-card {
+            padding: 2.5rem;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .tilt-content {
+            transform: translateZ(30px);
+        }
+
+        .quiz-step h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: var(--text-main);
+            text-align: center;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 15px;
+            justify-items: center;
+        }
+
+        #quiz-result {
+            text-align: center;
+            display: none;
+            animation: fadeUp 0.5s ease forwards;
+        }
+        
+        #quiz-result h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .reflection-container.tilt-card {
+            transform-style: preserve-3d; 
+        }
+        
+        .reflection-container .photo-item {
+            transition: transform 0.3s ease;
+        }
+
+        .reflection-container:hover .photo-item {
+            transform: scale(1.05);
+        }
+
+        .music-placeholder {
+            position: relative;
+            background: #121212;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 1.5rem 0;
+            min-height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .vinyl-record {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #222 0%, #000 100%);
+            border: 2px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: spinVinyl 4s linear infinite;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .vinyl-record::before {
+            content: '';
+            width: 40px; height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 2px solid #fff;
+        }
+
+        @keyframes spinVinyl {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .vow-panel-wrapper {
+            transition: border-color 0.5s ease, box-shadow 0.5s ease;
+        }
+        
+        .vow-panel-wrapper.glow-active {
+            border-color: var(--primary);
+            box-shadow: 0 0 30px rgba(255, 42, 109, 0.2);
+        }
+
+        .page-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            color: #555;
+            mix-blend-mode: difference;
+            z-index: 5;
+        }
+        
+        /* MODERN UI ENHANCEMENTS */
+        
+        .blur-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.5;
+            animation: floatOrb 10s infinite ease-in-out alternate;
+        }
+
+        @keyframes floatOrb {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(30px, -30px); }
+        }
+
+        .typewriter-container {
+            margin-top: 2rem;
+            min-height: 200px;
+            position: relative;
+        }
+        
+        .typewriter-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            line-height: 1.8;
+            color: var(--text-main);
+            padding: 2rem;
+            background: rgba(0,0,0,0.2);
+            border-radius: 12px;
+            border-left: 3px solid var(--primary);
+            overflow: hidden;
+            white-space: pre-wrap;
+            display: none;
+            backdrop-filter: blur(10px);
+        }
+        
+        .cursor-blink {
+            display: inline-block;
+            width: 3px;
+            height: 1.5rem;
+            background-color: var(--primary);
+            animation: blink 1s infinite;
+            vertical-align: text-bottom;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .counter-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .counter-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .counter-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .counter-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.06);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-color: var(--primary);
+        }
+        
+        .counter-item:hover::before {
+            opacity: 1;
+        }
+        
+        .counter-label {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .counter-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--text-main);
+            text-shadow: 0 0 20px rgba(192, 128, 129, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .counter-time {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-top: 0.5rem;
+            font-family: monospace;
+            position: relative;
+            z-index: 1;
+        }
+
+        .password-container {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .password-input {
+            width: 100%;
+            padding: 1.2rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--glass-border);
+            border-bottom: 2px solid var(--primary);
+            border-radius: 8px 8px 0 0;
+            color: var(--text-main);
+            font-family: var(--font-body);
+            font-size: 1.2rem;
+            margin: 2rem 0;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .password-input:focus {
+            background: rgba(255,255,255,0.1);
+            outline: none;
+            box-shadow: 0 10px 30px -10px rgba(192, 128, 129, 0.3);
+        }
+
+        .password-input::placeholder {
+            color: var(--text-muted);
+        }
+        
+        .password-hint {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+        
+        .video-container {
+            display: none;
+            margin-top: 2rem;
+            border-radius: 12px;
+            overflow: hidden;
+            animation: fadeUp 0.5s ease;
+        }
+        
+        .video-placeholder {
+            width: 100%;
+            height: 350px;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+        
+        .video-message {
+            position: absolute;
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .expiring-message {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 3rem;
+            background: rgba(0,0,0,0.2);
+            border-radius: 24px;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px);
+        }
+        
+        .expiring-text {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            color: var(--text-muted);
+        }
+        
+        .forever-text {
+            font-size: 2rem;
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .countdown-timer {
+            font-family: 'Courier New', monospace;
+            font-size: 2.5rem;
+            margin: 2rem 0;
+            color: var(--secondary);
+            display: none;
+        }
+
+        /* Floating particles for enhanced UX */
+        .particle {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.5;
+            animation: floatParticle 15s infinite ease-in-out;
+        }
+
+        @keyframes floatParticle {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+            50% { transform: translateY(-100px) translateX(50px); opacity: 0.6; }
+        }
+        
+        /* Dynamic Floating Particles Background */
+        .dynamic-particle {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 0;
+            animation: floatUp linear infinite;
+        }
+
+        @keyframes floatUp {
+            from {
+                transform: translateY(100vh);
+            }
+            to {
+                transform: translateY(-10vh);
+            }
+        }
+
+        /* Heart-shaped ripple effect */
+        .heart-ripple {
+            position: fixed;
+            pointer-events: none;
+            transform: translate(-50%, -50%) scale(0.3);
+            opacity: 0.5;
+            z-index: 999;
+            animation: heartRippleAnim 1.2s ease-out forwards;
+        }
+
+        .heart-layer {
+            position: absolute;
+            color: var(--primary);
+            font-size: 18px;
+            opacity: 0.5;
+        }
+
+        .heart-layer.layer2 {
+            font-size: 28px;
+            opacity: 0.35;
+        }
+
+        .heart-layer.layer3 {
+            font-size: 40px;
+            opacity: 0.2;
+        }
+
+        @keyframes heartRippleAnim {
+            0% {
+                transform: translate(-50%, -50%) scale(0.3);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.8);
+                opacity: 0;
+            }
+        }
+
+        /* Sound wave animation for music page */
+        .sound-wave {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 60px;
+            gap: 4px;
+            margin: 1rem 0;
+        }
+
+        .bar {
+            width: 6px;
+            background: var(--primary);
+            border-radius: 3px;
+            animation: soundWave 1s ease-in-out infinite;
+        }
+
+        @keyframes soundWave {
+            0%, 100% { height: 10px; }
+            50% { height: 40px; }
+        }
+
+        /* Enhanced heart animation */
+        .heart-beat {
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        /* Heartbeat animation on text */
+        .heartbeat {
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Touch feedback for mobile */
+        .touch-feedback {
+            position: fixed;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .touch-feedback.active {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* Extend Button Logic Styles */
+        #catchMeBtn {
+            position: fixed;
+            z-index: 10000;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3.5rem; }
+            .t-item { flex-direction: column !important; align-items: flex-start; margin-left: 20px; }
+            .t-card { width: 100%; }
+            .page:nth-child(2)::before { left: 20px; }
+            .theme-dock { 
+                top: auto; 
+                bottom: 2rem; 
+                right: 50%; 
+                transform: translateX(50%) translateY(85%); 
+                flex-direction: row;
+                border-radius: 50px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                width: auto;
+            }
+            
+            /* Make theme dock fully visible on first page for mobile */
+            .theme-dock.visible {
+                transform: translateX(50%) translateY(0);
+            }
+            
+            .theme-dock:hover {
+                transform: translateX(50%) translateY(0) !important;
+            }
+            
+            .theme-dock::before {
+                width: 70%;
+                height: 2px;
+                top: -1px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: linear-gradient(to right, transparent, var(--primary), transparent);
+            }
+            
+            .cursor-dot, .cursor-ring, .cursor-blur { display: none; }
+            * { cursor: auto; }
+            .tilt-card { transform: none !important; }
+            .typewriter-text { font-size: 1.2rem; }
+            .counter-value { font-size: 2rem; }
+            .counter-time { font-size: 1.2rem; }
+            
+            .gallery-container {
+                display: flex;
+                flex-direction: column;
+                max-width: 100%;
+                aspect-ratio: auto;
+                max-height: 60vh;
+            }
+            
+            .gallery-item {
+                width: 100%;
+                height: 150px;
+            }
+            
+            .gallery-overlay img {
+                max-width: 90vw;
+                max-height: 50vh;
+            }
+        }
+    </style>
+</head>
+<body data-theme="default">
+
+    <div class="bg-mesh"></div>
+    
+    <!-- Increased number of Floating Particles for Enhanced UX -->
+    <!-- Original Particles -->
+    <div class="particle" style="top: 10%; left: 10%; width: 6px; height: 6px; background: var(--primary); animation-delay: 0s;"></div>
+    <div class="particle" style="top: 20%; left: 80%; width: 8px; height: 8px; background: var(--secondary); animation-delay: 2s;"></div>
+    <div class="particle" style="top: 70%; left: 30%; width: 5px; height: 5px; background: var(--primary); animation-delay: 4s;"></div>
+    <div class="particle" style="top: 80%; left: 70%; width: 7px; height: 7px; background: var(--secondary); animation-delay: 6s;"></div>
+    <div class="particle" style="top: 40%; left: 60%; width: 6px; height: 6px; background: var(--accent); animation-delay: 8s;"></div>
+    <div class="particle" style="top: 60%; left: 20%; width: 8px; height: 8px; background: var(--primary); animation-delay: 10s;"></div>
+    <div class="particle" style="top: 30%; left: 40%; width: 5px; height: 5px; background: var(--secondary); animation-delay: 12s;"></div>
+    <div class="particle" style="top: 90%; left: 50%; width: 7px; height: 7px; background: var(--accent); animation-delay: 14s;"></div>
+    
+    <!-- Additional Stars/Dots (Increased count) -->
+    <div class="particle" style="top: 15%; left: 55%; width: 3px; height: 3px; background: #fff; animation-delay: 1s;"></div>
+    <div class="particle" style="top: 25%; left: 15%; width: 4px; height: 4px; background: #fff; animation-delay: 3s;"></div>
+    <div class="particle" style="top: 45%; left: 85%; width: 2px; height: 2px; background: #fff; animation-delay: 5s;"></div>
+    <div class="particle" style="top: 75%; left: 5%; width: 4px; height: 4px; background: #fff; animation-delay: 7s;"></div>
+    <div class="particle" style="top: 5%; left: 35%; width: 3px; height: 3px; background: #fff; animation-delay: 9s;"></div>
+    <div class="particle" style="top: 55%; left: 95%; width: 5px; height: 5px; background: #fff; animation-delay: 11s;"></div>
+    <div class="particle" style="top: 85%; left: 25%; width: 2px; height: 2px; background: #fff; animation-delay: 13s;"></div>
+    <div class="particle" style="top: 35%; left: 75%; width: 3px; height: 3px; background: #fff; animation-delay: 15s;"></div>
+    <div class="particle" style="top: 65%; left: 45%; width: 4px; height: 4px; background: #fff; animation-delay: 0.5s;"></div>
+    
+    <!-- Even More Stars for dense background -->
+    <div class="particle" style="top: 12%; left: 92%; width: 2px; height: 2px; background: rgba(255,255,255,0.6); animation-delay: 1.2s;"></div>
+    <div class="particle" style="top: 32%; left: 8%; width: 3px; height: 3px; background: rgba(255,255,255,0.6); animation-delay: 2.2s;"></div>
+    <div class="particle" style="top: 52%; left: 28%; width: 2px; height: 2px; background: rgba(255,255,255,0.6); animation-delay: 3.2s;"></div>
+    <div class="particle" style="top: 72%; left: 68%; width: 3px; height: 3px; background: rgba(255,255,255,0.6); animation-delay: 4.2s;"></div>
+    <div class="particle" style="top: 92%; left: 48%; width: 2px; height: 2px; background: rgba(255,255,255,0.6); animation-delay: 5.2s;"></div>
+    <div class="particle" style="top: 2%; left: 78%; width: 3px; height: 3px; background: rgba(255,255,255,0.6); animation-delay: 6.2s;"></div>
+    <div class="particle" style="top: 22%; left: 38%; width: 2px; height: 2px; background: rgba(255,255,255,0.6); animation-delay: 7.2s;"></div>
+    <div class="particle" style="top: 42%; left: 58%; width: 3px; height: 3px; background: rgba(255,255,255,0.6); animation-delay: 8.2s;"></div>
+
+    <!-- Additional floating elements -->
+    <div class="floating-geo" style="top:15%; right:15%; width:60px; height:60px; border-radius:50%; border-color:var(--accent-pink); animation-delay: 1s;"></div>
+    <div class="floating-geo" style="top:25%; left:25%; width:80px; height:80px; border-radius:30px; transform:rotate(30deg); animation-delay: 3s;"></div>
+    <div class="floating-geo" style="bottom:30%; right:20%; width:50px; height:50px; border-radius:50%; border-color:var(--secondary); animation-delay: 5s;"></div>
+    <div class="floating-geo" style="bottom:40%; left:15%; width:70px; height:70px; border-radius:20px; transform:rotate(60deg); animation-delay: 7s;"></div>
+    
+    <!-- Additional floating hearts -->
+    <div class="floating-heart" style="top: 20%; left: 20%; width: 60px; height: 60px; animation-delay: 2s;"></div>
+    <div class="floating-heart" style="top: 60%; left: 80%; width: 70px; height: 70px; animation-delay: 4s;"></div>
+    <div class="floating-heart" style="bottom: 30%; left: 40%; width: 50px; height: 50px; animation-delay: 6s;"></div>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+    <div class="cursor-blur" id="cursorBlur"></div>
+
+    <nav class="theme-dock visible" id="themeDock">
+        <div class="theme-orb active" style="background: linear-gradient(135deg, #2F1E2E, #D8A7B1);" onclick="setTheme('default', this)" title="Rose"></div>
+        <div class="theme-orb" style="background: linear-gradient(135deg, #4a1c25, #ff9a3c);" onclick="setTheme('sunset', this)" title="Sunset"></div>
+        <div class="theme-orb" style="background: linear-gradient(135deg, #1a2a1a, #8FBC8F);" onclick="setTheme('green', this)" title="Forest"></div>
+        <div class="theme-orb" style="background: linear-gradient(135deg, #2A0F1F, #F43F5E);" onclick="setTheme('pink', this)" title="Pink"></div>
+        <div class="theme-orb" style="background: linear-gradient(135deg, #0f172a, #818cf8);" onclick="setTheme('midnight', this)" title="Midnight"></div>
+    </nav>
+
+    <div class="page-wrapper">
+        <div class="pages-container" id="pagesContainer">
+            
+            <!-- PAGE 1: HERO -->
+            <div class="page">
+                <div class="container hero-content">
+                    <span class="subtitle fade-in-up">for the one who holds my heart</span>
+                    <h1 class="hero-title scramble-text" data-value="Hi, Riya ">Hi, Riya</h1>
+                    <p class="hero-sub" style="max-width: 600px; margin: 2rem auto; line-height: 1.8;">
+                        i love you, you are more that what i can ever ask for. through every smile and every tear, i want you by my side. 
+                    </p>
+                    <div class="fade-in-up" style="transition-delay: 0.3s; margin-top: 3rem;">
+                        <a href="#" class="magnetic-btn" id="startBtn">start the journey</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE 2: TIMELINE -->
+            <div class="page">
+                <div class="container">
+                    <div style="text-align: center; margin-bottom: 3rem;">
+                        <span class="subtitle fade-in-up">Chronology</span>
+                        <h2 class="fade-in-up">The Way We Began</h2>
+                    </div>
+
+                    <div class="timeline">
+                        <div class="t-item fade-in-up">
+                            <div class="glass-panel t-card tilt-card">
+                                <div class="tilt-content">
+                                    <span style="color: var(--primary); font-weight: bold; display: block; margin-bottom: 0.5rem;">SEPT 6, 2019</span>
+                                    <h3>The First Meet</h3>
+                                    <p style="color: var(--text-muted); margin-top: 1rem;">
+                                        I stepped into the classroom you occupied, as if fate had drawn the map long before I knew I was following it.
+                                    </p>
+                                </div>
+                                <div class="reflection"></div>
+                            </div>
+                        </div>
+
+                        <div class="t-item fade-in-up">
+                            <div class="glass-panel t-card tilt-card">
+                                <div class="tilt-content">
+                                    <span style="color: var(--secondary); font-weight: bold; display: block; margin-bottom: 0.5rem;">2019- 2020</span>
+                                    <h3>Late Night Twitter Spirals</h3>
+                                    <p style="color: var(--text-muted); margin-top: 1rem;">
+                                        During COVID, we used to talk on the green and blue till 4. Casual and fun interactions that stayed that way.
+                                    </p>
+                                </div>
+                                <div class="reflection"></div>
+                            </div>
+                        </div>
+
+                        <div class="t-item fade-in-up">
+                            <div class="glass-panel t-card tilt-card">
+                                <div class="tilt-content">
+                                    <span style="color: var(--secondary); font-weight: bold; display: block; margin-bottom: 0.5rem;">2022-2023</span>
+                                    <h3>Stolen Glances in the Hallway</h3>
+                                    <p style="color: var(--text-muted); margin-top: 1rem;">
+                                        "I plan my days around you. Planets orbits around you. I was lost til' I found you. I think angels surround you."
+                                    </p>
+                                </div>
+                                <div class="reflection"></div>
+                            </div>
+                        </div>
+
+                        <div class="t-item fade-in-up">
+                            <div class="glass-panel t-card tilt-card">
+                                <div class="tilt-content">
+                                    <span style="color: var(--primary); font-weight: bold; display: block; margin-bottom: 0.5rem;">FEB 06, 2023</span>
+                                    <h3>Scribble Day</h3>
+                                    <p style="color: var(--text-muted); margin-top: 1rem;">
+                                        I could't even utter complete words to call you to scribble on my coat. I mumbled  your name with awkward body gestures and you came over for what was our first in real life interaction.
+                                    </p>
+                                </div>
+                                <div class="reflection"></div>
+                            </div>
+                        </div>
+
+                        <div class="t-item fade-in-up">
+                            <div class="glass-panel t-card tilt-card">
+                                <div class="tilt-content">
+                                    <span style="color: var(--primary); font-weight: bold; display: block; margin-bottom: 0.5rem;">AUG 2024</span>
+                                    <h3>First shared text after the big break</h3>
+                                    <p style="color: var(--text-muted); margin-top: 1rem;">
+                                        The dumb one slid into the DMs of the goddess with a cheeky story reply on the car drift-waist trend. He was unsure of everything but luckily this turned out to be the ice-breaker after years.
+                                    </p>
+                                </div>
+                                <div class="reflection"></div>
+                            </div>
+                        </div>
+
+                        <div class="t-item fade-in-up">
+                            <div class="glass-panel t-card tilt-card">
+                                <div class="tilt-content">
+                                    <span style="color: var(--secondary); font-weight: bold; display: block; margin-bottom: 0.5rem;">2024-2025</span>
+                                    <h3>The Late Nighters, Again!</h3>
+                                    <p style="color: var(--text-muted); margin-top: 1rem;">
+                                        Slowly started the "Knowing each other phase". Asking questions that were never been asked, Being nice and understanding and most importantly- never getting tired of each other. The risky texts. The hypothethical scenarios, the big words said in the newfound fever of warmth and bonding.
+                                    </p>
+                                </div>
+                                <div class="reflection"></div>
+                            </div>
+                        </div>
+                        
+                         <div class="t-item fade-in-up">
+                            <div class="glass-panel t-card tilt-card">
+                                <div class="tilt-content">
+                                    <span style="color: var(--primary); font-weight: bold; display: block; margin-bottom: 0.5rem;">AUG 17, 2025</span>
+                                    <h3>"hi"</h3>
+                                    <p style="color: var(--text-muted); margin-top: 1rem;">
+                                        A message sent at 16:34 on WhatsApp. This time, no pretends, no playing. Both coming out of their comfort zones, both ready to give each other a chance to see if those were real promises or hollow words.
+                                    </p>
+                                </div>
+                                <div class="reflection"></div>
+                            </div>
+                        </div>
+
+                        <div class="t-item fade-in-up">
+                            <div class="glass-panel t-card tilt-card">
+                                <div class="tilt-content">
+                                    <span style="color: var(--secondary); font-weight: bold; display: block; margin-bottom: 0.5rem;">OCT 14, 2025</span>
+                                    <h3>The first I love You.</h3>
+                                    <p style="color: var(--text-muted); margin-top: 1rem;">
+                                        At 3:23AM someone decided to the fathest leap and say the most magical combination of words ever known to humankind. An expression of affection, intimacy and care.
+                                    </p>
+                                </div>
+                                <div class="reflection"></div>
+                            </div>
+                        </div>
+
+                         <div class="t-item fade-in-up">
+                            <div class="glass-panel t-card tilt-card">
+                                <div class="tilt-content">
+                                    <span style="color: var(--primary); font-weight: bold; display: block; margin-bottom: 0.5rem;">AUG 17, 2025</span>
+                                    <h3>TODAY</h3>
+                                    <p style="color: var(--text-muted); margin-top: 1rem;">
+                                        After a million "I love You"s and a dozen quarrels (they weren't fights, never for me!) here we are- stronger than ever, together and soo deeply in love.
+                                    </p>
+                                </div>
+                                <div class="reflection"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE 3: GALLERY -->
+            <div class="page">
+                <div class="container">
+                    <div style="text-align: center; margin-bottom: 3rem;">
+                        <span class="subtitle">Reflections</span>
+                        <h2>Captured Moments</h2>
+                    </div>
+                    
+                    <!-- Puzzle Grid with 7 Images -->
+                    <div class="gallery-container">
+                        <div class="gallery-item tilt-card">
+                            <img src="riya2.jpeg" alt="Us">
+                        </div>
+
+                        <div class="gallery-item tilt-card">
+                            <img src="riya3.jpeg" alt="Us">
+                        </div>
+
+                        <div class="gallery-item tilt-card">
+                            <img src="riya4.jpeg" alt="Us">
+                        </div>
+
+                        <div class="gallery-item tilt-card">
+                            <img src="riya1.jpeg" alt="Us">
+                        </div>
+
+                        <div class="gallery-item tilt-card">
+                            <img src="riya5.png" alt="Us">
+                        </div>
+
+                         <div class="gallery-item tilt-card">
+                            <img src="us2.jpeg" alt="Us">
+                        </div>
+
+                         <div class="gallery-item tilt-card">
+                            <img src="us3.png" alt="Us">
+                        </div>
+                    </div>
+                    
+                    <!-- Image Overlay for Enlarged View -->
+                    <div class="gallery-overlay" id="galleryOverlay">
+                        <span class="gallery-close" onclick="closeGallery(event)">&times;</span>
+                        <img src="" alt="Enlarged" id="enlargedImage">
+                    </div>
+
+                    <style>
+                    .gallery-overlay {
+                        position: fixed;
+                        inset: 0;
+                        background: rgba(15,15,20,0.85);
+                        backdrop-filter: blur(18px);
+                        -webkit-backdrop-filter: blur(18px);
+
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        opacity: 0;
+                        visibility: hidden;
+                        transition: all 0.35s ease;
+
+                        z-index: 9999;
+                    }
+
+                    .gallery-overlay.active {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+
+                    .gallery-overlay img {
+                        max-width: 92%;
+                        max-height: 92%;
+                        border-radius: 16px;
+
+                        transform: scale(0.85);
+                        opacity: 0;
+
+                        transition: all 0.35s cubic-bezier(.2,.8,.2,1);
+
+                        box-shadow:
+                            0 25px 80px rgba(0,0,0,.65),
+                            0 0 40px rgba(255,255,255,.08);
+                    }
+
+                    .gallery-overlay.active img {
+                        transform: scale(1);
+                        opacity: 1;
+                    }
+
+                    .gallery-close {
+                        position: absolute;
+                        top: 28px;
+                        right: 38px;
+
+                        font-size: 42px;
+                        color: white;
+                        cursor: pointer;
+
+                        opacity: .7;
+                        transition: all .25s ease;
+                    }
+
+                    .gallery-close:hover {
+                        opacity: 1;
+                        transform: rotate(90deg) scale(1.2);
+                    }
+                    </style>
+
+                    <script>
+                    const overlay = document.getElementById("galleryOverlay");
+                    const enlargedImage = document.getElementById("enlargedImage");
+
+                    /* Automatically works for ALL images on page */
+                    document.addEventListener("click", function(e) {
+
+                        if(e.target.tagName === "IMG" && e.target.id !== "enlargedImage") {
+                            enlargedImage.src = e.target.src;
+                            overlay.classList.add("active");
+                        }
+
+                    });
+
+                    /* Close function (your original one preserved) */
+                    function closeGallery(event) {
+
+                        if(event) event.stopPropagation();
+
+                        overlay.classList.remove("active");
+                    }
+
+                    /* Close on background click */
+                    overlay.addEventListener("click", function(e) {
+
+                        if(e.target === overlay) {
+                            overlay.classList.remove("active");
+                        }
+
+                    });
+
+                    /* Close on ESC */
+                    document.addEventListener("keydown", function(e) {
+
+                        if(e.key === "Escape") {
+                            overlay.classList.remove("active");
+                        }
+
+                    });
+                    </script>
+
+                </div>
+            </div>
+
+            <!-- PAGE 4: QUIZ (PARALLAX TARGET) -->
+            <div class="page">
+                <div class="container" style="max-width: 900px;">
+                    <div class="fade-in-up" style="text-align: center;">
+                        <span class="subtitle" style="letter-spacing: 0.2em; font-size: 0.9rem; margin-bottom: 1.5rem; display: block;">Test Time AHAHAHAHAH</span>
+                        <h2 class="scramble-text" style="font-size: clamp(2.5rem, 6vw, 5rem); margin-bottom: 2rem;" data-value="Do you know us?">Do you know us?</h2>
+                    </div>
+                    
+                    <div id="quiz-container">
+                        <!-- Q1 -->
+                        <div class="tilt-card quiz-step" data-step="1" style="display:block; width: 100%;">
+                            <div class="tilt-content">
+                                <h3>What was my first impression of you</h3>
+                                <div class="quiz-options">
+                                    <button class="magnetic-btn quiz-option" onclick="nextQuiz()">WHO IS THIS HALF ASLEEP WEIRDO?</button>
+                                    <button class="magnetic-btn quiz-option" onclick="nextQuiz()">SHE STANDS APART, SHE HAS NO COMPARISON.</button>
+                                    <button class="magnetic-btn quiz-option" onclick="nextQuiz()">KYA MAAL HAI YE</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Q2 -->
+                        <div class="tilt-card quiz-step" data-step="2" style="display:none; width: 100%;">
+                            <div class="tilt-content">
+                                <h3>When is my birthday</h3>
+                                <div class="quiz-options">
+                                    <button class="magnetic-btn quiz-option" onclick="nextQuiz()">January, 26</button>
+                                    <button class="magnetic-btn quiz-option" onclick="nextQuiz()">June, 25</button>
+                                    <button class="magnetic-btn quiz-option" onclick="nextQuiz()">May, 25</button>
+                                    <button class="magnetic-btn quiz-option" onclick="nextQuiz()">April, 16</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Q3 -->
+                        <div class="tilt-card quiz-step" data-step="3" style="display:none; width: 100%;">
+                            <div class="tilt-content">
+                                <h3>What is my favourite catchphrase?</h3>
+                                <div class="quiz-options">
+                                    <button class="magnetic-btn quiz-option" onclick="nextQuiz()">"...aur kuch?"</button>
+                                    <button class="magnetic-btn quiz-option" onclick="nextQuiz()">"abe jaa naa"</button>
+                                    <button class="magnetic-btn quiz-option" onclick="nextQuiz()">"sher hoon mai"</button>
+                                    <button class="magnetic-btn quiz-option" onclick="nextQuiz()">"bauniii"</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Q4 -->
+                        <div class="tilt-card quiz-step" data-step="4" style="display:none; width: 100%;">
+                            <div class="tilt-content">
+                                <h3>What is my height?</h3>
+                                <div class="quiz-options">
+                                    <button class="magnetic-btn quiz-option" onclick="nextQuiz()">5 feet 6 </button>
+                                    <button class="magnetic-btn quiz-option" onclick="nextQuiz()">About 6 feet</button>
+                                    <button class="magnetic-btn quiz-option" onclick="nextQuiz()">5"11</button>
+                                    <button class="magnetic-btn quiz-option" onclick="nextQuiz()">5 feet only</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Q5 -->
+                        <div class="tilt-card quiz-step" data-step="5" style="display:none; width: 100%;">
+                            <div class="tilt-content">
+                                <h3>Which is our favourite song?</h3>
+                                <div class="quiz-options">
+                                    <button class="magnetic-btn quiz-option" onclick="nextQuiz()">Seoul City</button>
+                                    <button class="magnetic-btn quiz-option" onclick="nextQuiz()">High On You</button>
+                                    <button class="magnetic-btn quiz-option" onclick="nextQuiz()">Lovers Rock</button>
+                                    <button class="magnetic-btn quiz-option" onclick="nextQuiz()">KALYANI</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Q6 -->
+                        <div class="tilt-card quiz-step" data-step="6" style="display:none; width: 100%;">
+                            <div class="tilt-content">
+                                <h3>What is my favorite thing about you?</h3>
+                                <div class="quiz-options">
+                                    <button class="magnetic-btn quiz-option" onclick="finishQuiz()">Your smile</button>
+                                    <button class="magnetic-btn quiz-option" onclick="finishQuiz()">Your eyes</button>
+                                    <button class="magnetic-btn quiz-option" onclick="finishQuiz()">Your personality</button>
+                                    <button class="magnetic-btn quiz-option" onclick="finishQuiz()">Samantha and Rachel</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- RESULT -->
+                        <div id="quiz-result">
+                            <h3 class="scramble-text" data-value="Perfect Score.">Perfect Score.</h3>
+                            <p style="color: var(--accent-blue); margin-top: 10px; font-size: 1.1rem;">Good job, bauni.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE 5: MUSIC -->
+            <div class="page">
+                <div class="container" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    
+                    <div class="glass-panel fade-in-up tilt-card" style="width: 100%; max-width: 700px; padding: 3rem; border-radius: 20px;">
+                        
+                        <div class="tilt-content" style="text-align: center;">
+                            
+                            <!-- HEADER -->
+                            <div style="margin-bottom: 2rem;">
+                                <span class="subtitle">ek aur playlist bana di huhuhuhu</span>
+                                <h2>yawrrr aap kitni hot ho</h2>
+                            </div>
+
+                            <!-- MUSIC PLAYER -->
+                            <div class="music-placeholder">
+                                <iframe 
+                                    data-testid="embed-iframe"
+                                    style="border-radius:12px; margin-top: 10px;"
+                                    src="https://open.spotify.com/embed/playlist/7lRQce1FkiIXOL55w36uTg?utm_source=generator&theme=0"
+                                    width="100%"
+                                    height="352"
+                                    frameborder="0"
+                                    allowfullscreen
+                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                    loading="lazy">
+                                </iframe>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- PAGE 6: VOW -->
+            <div class="page">
+                <div class="container" style="text-align: center; max-width: 800px;">
+                    <h2 class="fade-in-up">I Promise You</h2>
+                    
+                    <div class="glass-panel fade-in-up tilt-card vow-panel-wrapper"
+                        style="min-height: 200px; display: flex; align-items: center; justify-content: center;">
+                        
+                        <div class="tilt-content">
+                            <p id="vow-display" class="vow-text">
+                                I promise to always let you have the last fry, the last bite of dessert, or the warm side of the bed if you're feeling cold.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div style="margin-top: 2rem;" class="fade-in-up">
+                        <button class="magnetic-btn reason-btn" onclick="cycleVow()">
+                            Read Next Promise
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+            const vows = [
+                "I promise to always let you have the last fry, the last bite of dessert, or the warm side of the bed if you're feeling cold.",
+                "I promise that no matter how grumpy you get, I'll still think you're the best thing I've ever seen.",
+                "I promise to be your biggest fan in a room full of people.",
+                "I promise to always play the songs you love, during jams even when they're a completely different vibe from mine.",
+                "I promise to never stop looking at you across a crowded room and making sure you know you're the one I'm there for.",
+                "I promise to tell you the truth, even when it's uncomfortable, because I respect you too much to give you anything less than the real version of me.",
+                "I promise to fall in love with every new version of you. As you change, grow, and age, I promise to keep getting to know you as if we just met."
+            ];
+
+            let vowIndex = 0;
+
+            function cycleVow() {
+                vowIndex = (vowIndex + 1) % vows.length;
+                document.getElementById("vow-display").textContent = vows[vowIndex];
+            }
+            </script>
+
+            <!-- PAGE 7: HIDDEN LOVE LETTER -->
+            <div class="page">
+                <div class="container" style="text-align: center; max-width: 800px;">
+                    <!-- Decorative Blur Orb -->
+                    <div class="blur-orb" style="width: 300px; height: 300px; background: var(--primary); top: -100px; left: 50%; transform: translateX(-50%);"></div>
+
+                    <h2 class="fade-in-up" style="position: relative;">yes one more page coz why not</h2>
+                    
+                    <div class="glass-panel fade-in-up" style="margin-top: 2rem; background: rgba(20,20,20,0.4);">
+                        <div class="tilt-content" style="text-align: center; position: relative; z-index: 2;">
+                            <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 2rem; letter-spacing: 1px;">
+                                I've hidden something special here, just for you.
+                            </p>
+                            
+                            <button class="magnetic-btn" id="easterEggBtn" style="border-color: var(--secondary); color: var(--secondary);">Do not click 👀</button>
+                            
+                            <div class="typewriter-container">
+                                <div class="typewriter-text" id="typewriterText">
+                                    <span id="typedContent"></span><span class="cursor-blink"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE 8: RELATIONSHIP COUNTER -->
+            <div class="page">
+                <div class="container" style="text-align: center; max-width: 800px;">
+                    <!-- Decorative Blur Orbs -->
+                    <div class="blur-orb" style="width: 400px; height: 400px; background: var(--secondary); top: 20%; left: -100px;"></div>
+                    <div class="blur-orb" style="width: 300px; height: 300px; background: var(--primary); bottom: 10%; right: -50px; animation-delay: -5s;"></div>
+
+                    <h2 class="fade-in-up" style="position: relative; z-index: 2;">Our Time Together</h2>
+                    
+                    <div class="glass-panel fade-in-up" style="margin-top: 2rem; background: rgba(255,255,255,0.02); position: relative; z-index: 2;">
+                        <div class="tilt-content" style="text-align: center;">
+                            <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 3rem;">
+                                Every second with you is a treasure I hold close to my heart.
+                            </p>
+                            
+                            <div class="counter-container">
+                                <div class="counter-item magnetic-counter">
+                                    <div class="counter-label">Since We First Met</div>
+                                    <div class="counter-value" id="metDays">0</div>
+                                    <div class="counter-time" id="metTime">0 hours, 0 minutes, 0 seconds</div>
+                                </div>
+                                
+                                <div class="counter-item magnetic-counter">
+                                    <div class="counter-label">Together</div>
+                                    <div class="counter-value" id="togetherDays">428</div>
+                                    <div class="counter-time" id="togetherTime">6 hours, 12 minutes</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE 9: PASSWORD PROTECTED SURPRISE -->
+            <div class="page">
+                <div class="container" style="text-align: center; max-width: 800px;">
+                     <!-- Decorative Blur Orbs -->
+                     <div class="blur-orb" style="width: 500px; height: 500px; background: var(--accent); top: 50%; left: 50%; transform: translate(-50%, -50%); filter: blur(100px); opacity: 0.2;"></div>
+
+                    <h2 class="fade-in-up" style="position: relative; z-index: 2;">A Special Surprise</h2>
+                    
+                    <div class="glass-panel fade-in-up" style="margin-top: 2rem; position: relative; z-index: 2;">
+                        <div class="tilt-content" style="text-align: center;">
+                            <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 2rem;">
+                                Something special awaits you, but you need to unlock it first.
+                            </p>
+                            
+                            <div id="passwordSection" class="password-container">
+                                <h3>Enter the date we talked on WhatsApp</h3>
+                                <p class="password-hint">(Format: dd/mm/yyyy)</p>
+                                <input type="text" class="password-input magnetic-input" id="passwordInput">
+                                <button class="magnetic-btn" onclick="checkPassword()">Unlock Surprise</button>
+                            </div>
+                            
+                            <div class="video-container" id="videoContainer">
+                                <video width="100%" height="350" controls autoplay>
+                                    <source src="video.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <p style="margin-top: 1rem; color: var(--text-muted);">This is where your special video would play</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE 10: FOREVER -->
+            <div class="page">
+                <div class="container" style="text-align: center; position: relative; height: 100%; overflow: visible;">
+                    <!-- Multiple hearts of varying sizes - full screen -->
+                    <div style="position: absolute; top: 5%; left: 5%; font-size: 4rem; opacity: 0.15; color: var(--primary); animation: floatHeart 8s infinite ease-in-out; z-index: 0;">❤️</div>
+                    <div style="position: absolute; top: 10%; right: 10%; font-size: 7rem; opacity: 0.1; color: var(--secondary); animation: floatHeart 10s infinite ease-in-out 1s; z-index: 0;">❤️</div>
+                    <div style="position: absolute; top: 30%; left: 10%; font-size: 5rem; opacity: 0.12; color: var(--primary); animation: floatHeart 12s infinite ease-in-out 2s; z-index: 0;">❤️</div>
+                    <div style="position: absolute; top: 20%; right: 20%; font-size: 8rem; opacity: 0.08; color: var(--secondary); animation: floatHeart 9s infinite ease-in-out 0.5s; z-index: 0;">❤️</div>
+                    <div style="position: absolute; top: 50%; left: 3%; font-size: 6rem; opacity: 0.1; color: var(--primary); animation: floatHeart 11s infinite ease-in-out 1.5s; z-index: 0;">❤️</div>
+                    <div style="position: absolute; top: 40%; right: 5%; font-size: 5rem; opacity: 0.12; color: var(--secondary); animation: floatHeart 7s infinite ease-in-out 2.5s; z-index: 0;">❤️</div>
+                    <div style="position: absolute; bottom: 10%; left: 30%; font-size: 6rem; opacity: 0.1; color: var(--primary); animation: floatHeart 13s infinite ease-in-out 3s; z-index: 0;">❤️</div>
+                    <div style="position: absolute; bottom: 20%; left: 10%; font-size: 4rem; opacity: 0.14; color: var(--secondary); animation: floatHeart 8s infinite ease-in-out 0.8s; z-index: 0;">❤️</div>
+                    <div style="position: absolute; bottom: 30%; right: 15%; font-size: 7rem; opacity: 0.09; color: var(--primary); animation: floatHeart 10s infinite ease-in-out 1.2s; z-index: 0;">❤️</div>
+                    <div style="position: absolute; bottom: 5%; right: 5%; font-size: 5rem; opacity: 0.11; color: var(--secondary); animation: floatHeart 9s infinite ease-in-out 2.2s; z-index: 0;">❤️</div>
+                    <div style="position: absolute; top: 15%; left: 40%; font-size: 3rem; opacity: 0.16; color: var(--primary); animation: floatHeart 11s infinite ease-in-out 0.3s; z-index: 0;">❤️</div>
+                    <div style="position: absolute; bottom: 40%; left: 5%; font-size: 6rem; opacity: 0.1; color: var(--secondary); animation: floatHeart 10s infinite ease-in-out 1.7s; z-index: 0;">❤️</div>
+                    
+                    <!-- Original large heart in background -->
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 40rem; opacity: 0.05; z-index: 0; color: var(--primary); animation: breathe 3s infinite ease-in-out;">❤️</div>
+                    
+                    <div style="position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; height: 100%;">
+                        <h1 class="fade-in-up">Forever.</h1>
+                        <p class="fade-in-up" style="font-size: 1.5rem; margin-top: 1rem; color: var(--text-main); max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+                            I choose you. Yesterday. Today. And all the tomorrows to come.
+                        </p>
+                        
+                        <div class="fade-in-up heart-beat" style="margin-top: 5rem; font-size: 6rem; color: var(--primary); filter: drop-shadow(0 0 20px var(--accent-glow));">
+                            ❤️
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <!-- PAGE 11: EXPIRATION -->
+             <div class="page">
+                <div class="container" style="text-align: center;">
+                    <h2 class="fade-in-up">Time is Ticking</h2>
+                    
+                    <div class="expiring-message fade-in-up">
+                        <p class="expiring-text">This website will expire in 24 hours…</p>
+                        <p class="forever-text">but my love for you won't.</p>
+                        
+                        <div class="countdown-timer" id="countdownTimer">23:59:59</div>
+                    </div>
+                    
+                    <div class="fade-in-up" style="margin-top: 3rem; position: relative; min-height: 60px;">
+                        <button class="magnetic-btn" id="extendWebsiteBtn">Extend Website</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="nav-controls">
+        <button class="magnetic-btn" id="prevBtn">←</button>
+        <div class="page-indicator">
+            <span id="currentPage">1</span> / 11
+        </div>
+        <button class="magnetic-btn" id="nextBtn">→</button>
+    </div>
+
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // ==========================================
+            // NEW: Mouse Trail Hearts Effect with theme colors
+            // ==========================================
+            document.addEventListener("mousemove", (e) => {
+                // Rate limit the creation of hearts to improve performance
+                if (Math.random() > 0.3) return; 
+
+                const heart = document.createElement("div");
+                heart.innerHTML = "❤️";
+
+                heart.style.position = "fixed";
+                heart.style.left = e.clientX + "px";
+                heart.style.top = e.clientY + "px";
+                heart.style.pointerEvents = "none";
+                heart.style.fontSize = "14px";
+                heart.style.opacity = "0.85"; // 85% opacity as requested
+                heart.style.transition = "all 1s ease";
+                heart.style.zIndex = "997"; // Below cursor ring, above background
+                heart.style.transform = "translate(-50%, -50%)";
+                
+                // Get the current theme's primary color
+                const computedStyle = getComputedStyle(document.body);
+                const primaryColor = computedStyle.getPropertyValue('--primary').trim();
+                heart.style.color = primaryColor;
+
+                document.body.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.style.transform = "translate(-50%, -30px)";
+                    heart.style.opacity = "0";
+                }, 10);
+
+                setTimeout(() => heart.remove(), 1000);
+            });
+
+            // ==========================================
+            // NEW: Floating Background Particles Generator
+            // ==========================================
+            setInterval(() => {
+                const p = document.createElement("div");
+                p.className = "dynamic-particle";
+
+                p.style.left = Math.random() * 100 + "vw";
+                p.style.animationDuration = (5 + Math.random() * 10) + "s";
+                
+                // Randomly vary size and opacity slightly
+                const size = 4 + Math.random() * 4;
+                p.style.width = size + "px";
+                p.style.height = size + "px";
+                p.style.opacity = 0.1 + Math.random() * 0.3;
+
+                document.body.appendChild(p);
+
+                setTimeout(() => p.remove(), 15000);
+            }, 500);
+            
+            // ==========================================
+            // NEW: Heart-shaped Ripple Effect
+            // ==========================================
+            document.addEventListener("click", (e) => {
+                const ripple = document.createElement("div");
+                ripple.className = "heart-ripple";
+
+                ripple.style.left = e.clientX + "px";
+                ripple.style.top = e.clientY + "px";
+
+                // create layered hearts
+                const heart1 = document.createElement("div");
+                heart1.className = "heart-layer layer1";
+                heart1.innerHTML = "❤️";
+
+                const heart2 = document.createElement("div");
+                heart2.className = "heart-layer layer2";
+                heart2.innerHTML = "❤️";
+
+                const heart3 = document.createElement("div");
+                heart3.className = "heart-layer layer3";
+                heart3.innerHTML = "❤️";
+
+                ripple.appendChild(heart3);
+                ripple.appendChild(heart2);
+                ripple.appendChild(heart1);
+
+                document.body.appendChild(ripple);
+
+                setTimeout(() => ripple.remove(), 1200);
+            });
+
+            // ==========================================
+            // EXISTING LOGIC
+            // ==========================================
+            
+            // Select bg-mesh for parallax
+            const bgMesh = document.querySelector('.bg-mesh');
+
+            // CURSOR PHYSICS
+            const cursorDot = document.querySelector('.cursor-dot');
+            const cursorRing = document.querySelector('.cursor-ring');
+            const cursorBlur = document.getElementById('cursorBlur');
+
+            let mouseX = 0, mouseY = 0;
+            let cursorX = 0, cursorY = 0;
+            let pointerX = 0, pointerY = 0;
+            let blurX = 0, blurY = 0;
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                cursorDot.style.left = mouseX + 'px';
+                cursorDot.style.top = mouseY + 'px';
+            });
+
+            function animateCursor() {
+                cursorX += (mouseX - cursorX) * 0.2;
+                cursorY += (mouseY - cursorY) * 0.2;
+                pointerX += (mouseX - pointerX) * 0.12;
+                pointerY += (mouseY - pointerY) * 0.12;
+                blurX += (mouseX - blurX) * 0.08;
+                blurY += (mouseY - blurY) * 0.08;
+
+                cursorDot.style.left = cursorX + 'px';
+                cursorDot.style.top = cursorY + 'px';
+                cursorRing.style.left = pointerX + 'px';
+                cursorRing.style.top = pointerY + 'px';
+
+                const dx = mouseX - pointerX;
+                const dy = mouseY - pointerY;
+                const cursorAngle = Math.atan2(dy, dx) * (180 / Math.PI);
+                cursorRing.style.transform = `translate(-50%, -50%)`;
+
+                cursorBlur.style.left = blurX + 'px';
+                cursorBlur.style.top = blurY + 'px';
+
+                requestAnimationFrame(animateCursor);
+            }
+            animateCursor();
+
+            // Added Gallery Items to clickable list
+            const clickables = document.querySelectorAll('a, button, .photo-item, .reason-btn, .quiz-option, .theme-orb, .tilt-card, .magnetic-btn, .gallery-item');
+            clickables.forEach(el => {
+                el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+                el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+            });
+
+            // MAGNETIC BUTTON EFFECT (Extended to Gallery Items)
+            const magnets = document.querySelectorAll('.magnetic-btn, .gallery-item, .magnetic-counter, .magnetic-input');
+
+            magnets.forEach(btn => {
+                btn.addEventListener('mousemove', (e) => {
+                    const rect = btn.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top  - rect.height / 2;
+
+                    btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+                });
+
+                btn.addEventListener('mouseleave', () => {
+                    btn.style.transform = `translate(0px, 0px)`;
+                });
+            });
+
+            // 3D TILT EFFECT (Applied to all .tilt-card elements)
+            const tiltCards = document.querySelectorAll('.tilt-card');
+            tiltCards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = ((y - centerY) / centerY) * -10;
+                    const rotateY = ((x - centerX) / centerX) * 10;
+                    
+                    card.style.transform = `
+                        perspective(1000px)
+                        rotateX(${rotateX}deg)
+                        rotateY(${rotateY}deg)
+                        scale3d(1.02, 1.02, 1.02)
+                    `;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = `
+                        perspective(1000px)
+                        rotateX(0)
+                        rotateY(0)
+                        scale3d(1,1,1)
+                    `;
+                });
+            });
+
+            // GALLERY OVERLAY FUNCTIONALITY
+            const galleryItems = document.querySelectorAll('.gallery-item img');
+            const galleryOverlay = document.getElementById('galleryOverlay');
+            const enlargedImage = document.getElementById('enlargedImage');
+            
+            galleryItems.forEach(img => {
+                img.parentElement.addEventListener('click', () => { 
+                    enlargedImage.src = img.src;
+                    galleryOverlay.classList.add('active');
+                });
+            });
+            
+            window.closeGallery = function() {
+                galleryOverlay.classList.remove('active');
+            }
+
+            // SCROLL OBSERVER
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+
+            // VOW CYCLER
+            const vows = [
+                "I promise to be your biggest fan, your safe place, and your forever home.",
+                "I promise to love you in the moments when you're lovable, and even more in the moments when you aren't.",
+                "I promise to listen, to learn, and to grow old with you, laughing every step of the way."
+            ];
+            let vowIndex = 0;
+            const vowDisplay = document.getElementById('vow-display');
+            const vowPanel = document.querySelector('.vow-panel-wrapper');
+
+            window.cycleVow = function() {
+                vowPanel.classList.add('glow-active');
+                setTimeout(() => vowPanel.classList.remove('glow-active'), 500);
+
+                vowDisplay.style.opacity = 0;
+                vowDisplay.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    vowIndex = (vowIndex + 1) % vows.length;
+                    vowDisplay.innerText = vows[vowIndex];
+                    vowDisplay.style.opacity = 1;
+                    vowDisplay.style.transform = 'translateY(0)';
+                }, 500);
+            }
+
+            // SCRAMBLE TEXT EFFECT
+            const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            document.querySelectorAll('.scramble-text').forEach(el => {
+                el.addEventListener('mouseover', () => {
+                    let i = 0;
+                    const original = el.dataset.value;
+                    clearInterval(el.interval);
+                    el.interval = setInterval(() => {
+                        el.innerText = original
+                            .split("")
+                            .map((c, idx) => idx < i ? original[idx] : letters[Math.floor(Math.random() * letters.length)])
+                            .join("");
+                        if (i >= original.length) clearInterval(el.interval);
+                        i += 1 / 3;
+                    }, 30);
+                });
+                el.dispatchEvent(new Event('mouseover'));
+            });
+
+            // QUIZ LOGIC (Updated for 7 steps)
+            window.nextQuiz = function() {
+                let currentStepEl = document.querySelector('.quiz-step[style*="display: block"]');
+                if(!currentStepEl) currentStepEl = document.querySelector('.quiz-step[data-step="1"]'); // Fallback
+                
+                let stepNum = parseInt(currentStepEl.getAttribute('data-step'));
+                let nextStep = document.querySelector(`.quiz-step[data-step="${stepNum + 1}"]`);
+                
+                if (currentStepEl && nextStep) {
+                    currentStepEl.style.display = 'none';
+                    nextStep.style.display = 'block';
+                }
+            }
+
+            window.finishQuiz = function() {
+                document.querySelectorAll('.quiz-step').forEach(el => el.style.display = 'none');
+                const result = document.getElementById('quiz-result');
+                result.style.display = 'block';
+                createConfetti();
+            }
+
+            function createConfetti() {
+                const colors = ['#ff2a6d', '#05d9e8', '#ffffff'];
+                for(let i=0; i<50; i++) {
+                    const conf = document.createElement('div');
+                    conf.style.position = 'fixed';
+                    conf.style.width = '8px';
+                    conf.style.height = '8px';
+                    conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    conf.style.left = Math.random() * 100 + 'vw';
+                    conf.style.top = '-10px';
+                    conf.style.zIndex = '9999';
+                    conf.style.pointerEvents = 'none';
+                    document.body.appendChild(conf);
+
+                    const duration = Math.random() * 3 + 2;
+                    conf.animate([
+                        { transform: `translate(0, 0) rotate(0)`, opacity: 1 },
+                        { transform: `translate(${Math.random()*100 - 50}px, 100vh) rotate(${Math.random()*360}deg)`, opacity: 0 }
+                    ], {
+                        duration: duration * 1000,
+                        easing: 'cubic-bezier(0.25, 1, 0.5, 1)'
+                    }).onfinish = () => conf.remove();
+                }
+            }
+
+            // EASTER EGG
+            const easterEggBtn = document.getElementById('easterEggBtn');
+            const typewriterText = document.getElementById('typewriterText');
+            const typedContent = document.getElementById('typedContent');
+            
+            const loveLetter = "You are the stillness in the center of my storm. Somehow, being with you feels like coming home to a place I've belonged to my entire life. You are the music in my silence and the light in my every day. I love you beyond the reach of words and deeper than any dream. You have my heart, today and for all the forevers to come.";
+            
+            easterEggBtn.addEventListener('click', () => {
+                typewriterText.style.display = 'block';
+                easterEggBtn.style.display = 'none';
+                
+                let i = 0;
+                const typeWriter = () => {
+                    if (i < loveLetter.length) {
+                        typedContent.textContent += loveLetter.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 50);
+                    }
+                };
+                
+                typeWriter();
+            });
+
+            // RELATIONSHIP COUNTER
+            const metDate = new Date('2019-08-05T07:30:00');
+            const togetherDate = new Date('2025-08-27T00:00:00');
+            
+            function updateCounters() {
+                const now = new Date();
+                
+                const metDiff = now - metDate;
+                const metDays = Math.floor(metDiff / (1000 * 60 * 60 * 24));
+                const metHours = Math.floor((metDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const metMinutes = Math.floor((metDiff % (1000 * 60 * 60)) / (1000 * 60));
+                const metSeconds = Math.floor((metDiff % (1000 * 60)) / 1000);
+                
+                document.getElementById('metDays').textContent = metDays;
+                document.getElementById('metTime').textContent = `${metHours} hours, ${metMinutes} minutes, ${metSeconds} seconds`;
+                
+                const togetherDiff = now - togetherDate;
+                const togetherDays = Math.floor(togetherDiff / (1000 * 60 * 60 * 24));
+                const togetherHours = Math.floor((togetherDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const togetherMinutes = Math.floor((togetherDiff % (1000 * 60 * 60)) / (1000 * 60));
+                
+                document.getElementById('togetherDays').textContent = togetherDays;
+                document.getElementById('togetherTime').textContent = `${togetherHours} hours, ${togetherMinutes} minutes`;
+            }
+            
+            setInterval(updateCounters, 1000);
+            updateCounters();
+
+            // PASSWORD PROTECTED SURPRISE
+            window.checkPassword = function() {
+                const passwordInput = document.getElementById('passwordInput').value;
+                const passwordSection = document.getElementById('passwordSection');
+                const videoContainer = document.getElementById('videoContainer');
+                const correctPassword = "17/08/2025";
+                
+                if (passwordInput === correctPassword) {
+                    passwordSection.style.display = 'none';
+                    videoContainer.style.display = 'block';
+                    createConfetti();
+                } else {
+                    passwordInput.style.animation = "shake 0.5s";
+                    setTimeout(() => {
+                        passwordInput.style.animation = "";
+                    }, 500);
+                    
+                    if (!document.getElementById('shakeAnimation')) {
+                        const style = document.createElement('style');
+                        style.id = 'shakeAnimation';
+                        style.textContent = `
+                            @keyframes shake {
+                                0% { transform: translateX(0); }
+                                25% { transform: translateX(-10px); }
+                                50% { transform: translateX(10px); }
+                                75% { transform: translateX(-10px); }
+                                100% { transform: translateX(0); }
+                            }
+                        `;
+                        document.head.appendChild(style);
+                    }
+                }
+            }
+
+            // NEW PAGE 11 LOGIC (Modified)
+            const extendBtn = document.getElementById('extendWebsiteBtn');
+            let timerInterval;
+            let isCatchMeActive = false;
+            
+            extendBtn.addEventListener('click', () => {
+                if(isCatchMeActive) return; 
+
+                // 1. Transition/Fade out extend button
+                extendBtn.style.transition = "opacity 0.5s ease";
+                extendBtn.style.opacity = "0";
+                
+                setTimeout(() => {
+                    extendBtn.style.display = 'none';
+                    
+                    // 2. Show Timer with transition
+                    const timerDisplay = document.getElementById('countdownTimer');
+                    timerDisplay.style.display = 'block';
+                    timerDisplay.style.opacity = '0';
+                    timerDisplay.style.transition = "opacity 0.8s ease";
+                    
+                    // Trigger reflow
+                    void timerDisplay.offsetWidth;
+                    
+                    timerDisplay.style.opacity = "1";
+                    
+                    let hours = 23, minutes = 59, seconds = 59;
+                    
+                    timerInterval = setInterval(() => {
+                        seconds--;
+                        if (seconds < 0) {
+                            seconds = 59;
+                            minutes--;
+                            if (minutes < 0) {
+                                minutes = 59;
+                                hours--;
+                                if (hours < 0) {
+                                    clearInterval(timerInterval);
+                                    timerDisplay.textContent = "EXPIRED";
+                                }
+                            }
+                        }
+                        timerDisplay.textContent = 
+                            `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                    }, 1000);
+                    
+                    // 3. After 5 seconds, spawn "Catch Me" button
+                    setTimeout(() => {
+                        createCatchMeButton();
+                    }, 5000);
+                }, 500); 
+            });
+            
+            function createCatchMeButton() {
+                isCatchMeActive = true;
+                
+                const catchBtn = document.createElement('button');
+                catchBtn.id = 'catchMeBtn';
+                catchBtn.className = 'magnetic-btn';
+                catchBtn.textContent = 'Catch Me!';
+                document.body.appendChild(catchBtn);
+                
+                moveCatchMeButton(catchBtn);
+                
+                catchBtn.addEventListener('click', () => {
+                    moveCatchMeButton(catchBtn);
+                });
+                
+                // Add magnetic effect to new button
+                catchBtn.addEventListener('mousemove', (e) => {
+                    const rect = catchBtn.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top  - rect.height / 2;
+                    catchBtn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+                });
+                
+                catchBtn.addEventListener('mouseleave', () => {
+                    catchBtn.style.transform = `translate(0px, 0px)`;
+                });
+            }
+            
+            function moveCatchMeButton(btn) {
+                const btnWidth = 150; 
+                const btnHeight = 50;
+                
+                const maxX = window.innerWidth - btnWidth - 40;
+                const maxY = window.innerHeight - btnHeight - 40;
+                
+                const randomX = Math.max(20, Math.random() * maxX);
+                const randomY = Math.max(20, Math.random() * maxY);
+                
+                btn.style.left = randomX + 'px';
+                btn.style.top = randomY + 'px';
+            }
+
+            // PAGE NAVIGATION SYSTEM (Updated for 11 pages)
+            let currentPage = 0;
+            const totalPages = 11;
+            const pagesContainer = document.getElementById('pagesContainer');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const startBtn = document.getElementById('startBtn');
+            const currentPageDisplay = document.getElementById('currentPage');
+            const themeDock = document.getElementById('themeDock');
+            
+            // Function to update theme dock visibility based on current page
+            function updateThemeDockVisibility() {
+                if (currentPage === 0) {
+                    // First page - show fully
+                    themeDock.classList.add('visible');
+                } else {
+                    // Other pages - hide and show on hover
+                    themeDock.classList.remove('visible');
+                }
+            }
+
+            function updatePage() {
+                pagesContainer.style.transform = `translateX(-${currentPage * 100}vw)`;
+                currentPageDisplay.textContent = currentPage + 1;
+                
+                prevBtn.style.opacity = currentPage === 0 ? '0.3' : '1';
+                prevBtn.style.pointerEvents = currentPage === 0 ? 'none' : 'auto';
+                
+                nextBtn.style.opacity = currentPage === totalPages - 1 ? '0.3' : '1';
+                nextBtn.style.pointerEvents = currentPage === totalPages - 1 ? 'none' : 'auto';
+                
+                // Update theme dock visibility
+                updateThemeDockVisibility();
+                
+                // Reset parallax transforms when leaving the page
+                if(bgMesh) bgMesh.style.transform = 'scale(1)';
+                const quizTitle = document.querySelector('.page:nth-child(4) h2');
+                if(quizTitle && currentPage !== 3) quizTitle.style.transform = '';
+                const quizContainer = document.querySelector('.page:nth-child(4) .container');
+                if(quizContainer && currentPage !== 3) quizContainer.style.transform = '';
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (currentPage > 0) {
+                    currentPage--;
+                    updatePage();
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                if (currentPage < totalPages - 1) {
+                    currentPage++;
+                    updatePage();
+                }
+            });
+
+            startBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentPage = 1;
+                updatePage();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft' && currentPage > 0) {
+                    currentPage--;
+                    updatePage();
+                } else if (e.key === 'ArrowRight' && currentPage < totalPages - 1) {
+                    currentPage++;
+                    updatePage();
+                }
+            });
+
+            // Initialize page
+            updatePage();
+
+            // THEME ENGINE
+            const themeColors = {
+                'default': { pointer: '#D8A7B1', glow: 'rgba(216, 167, 177, 0.35)' }, 
+                'sunset': { pointer: '#ff9a3c', glow: 'rgba(255, 154, 60, 0.35)' },   
+                'green': { pointer: '#8FBC8F', glow: 'rgba(143, 188, 143, 0.35)' },     
+                'pink': { pointer: '#F43F5E', glow: 'rgba(244, 63, 94, 0.35)' },
+                'midnight': { pointer: '#818cf8', glow: 'rgba(129, 140, 248, 0.35)' }
+            };
+
+            window.setTheme = function(themeName, element) {
+                document.body.setAttribute('data-theme', themeName);
+                document.querySelectorAll('.theme-orb').forEach(el => el.classList.remove('active'));
+                if (element) element.classList.add('active');
+
+                const colors = themeColors[themeName];
+                document.documentElement.style.setProperty('--pointer-blue', colors.pointer);
+                document.documentElement.style.setProperty('--accent-glow', colors.glow);
+            }
+        });
+        
+        // --- ADDITION: 3D DEPTH PARALLAX ON QUIZ PAGE ---
+        document.addEventListener('mousemove', (e) => {
+            const pagesContainer = document.getElementById('pagesContainer');
+            const transformX = pagesContainer.style.transform;
+            const match = transformX.match(/translateX\(([-0-9.]+)vw\)/);
+            let pageIndex = 0;
+            if (match) {
+                const value = parseFloat(match[1]);
+                pageIndex = Math.abs(Math.round(value));
+            }
+
+            // Target Page 4 (Index 3)
+            if (pageIndex === 3) {
+                const moveX = (window.innerWidth - e.clientX * 2) / 100;
+                const moveY = (window.innerHeight - e.clientY * 2) / 100;
+                
+                // 1. Background (Far Layer)
+                const bgMesh = document.querySelector('.bg-mesh');
+                if(bgMesh) {
+                    bgMesh.style.transform = `translate(${moveX * 2}px, ${moveY * 2}px) scale(1.1)`;
+                }
+                
+                // 2. Title (Close Layer)
+                const quizTitle = document.querySelector('.page:nth-child(4) h2');
+                if(quizTitle) {
+                    quizTitle.style.transform = `translate(${moveX * -1.5}px, ${moveY * -1.5}px)`;
+                }
+                
+                // 3. Container (Mid Layer)
+                const quizContainer = document.querySelector('.page:nth-child(4) .container');
+                if(quizContainer) {
+                    quizContainer.style.transform = `translate(${moveX * 0.5}px, ${moveY * 0.5}px)`;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
